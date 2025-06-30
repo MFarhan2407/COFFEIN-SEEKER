@@ -5,22 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Coffein Seeker</title>
   <link rel="stylesheet" href="style.css" />
+  <img src="IMAGE/Modern_Initial_MB_Logo_2_-removebg-preview-copy.png" alt="" style="margin-top: 0.5rem; size: 50px; margin-bottom: 0.5rem; padding-left: 50px; padding-bottom: 2px;" width="120" height="80" class="logo"  />
 </head>
 <body>
-  <div class="page-container" style="text-align: center; margin-top: 80px;">
-    <h1>☕ COFFEIN SEEKER</h1>
-    <h2>Welcome!</h2>
+  <div class="container-xl" style="text-align: center; margin-top: 80px;">
 
-    <div style="max-width: 300px; margin: 2rem auto;">
-      <label for="nama">Nama:</label><br/>
+    <section class="awal">
+      <div class="awal-text">
+        <h1>Brewed to Awareness</h1>
+        <p>Cari tahu berapa banyak kafein yang kamu konsumsi hari ini</p>
+        <button onclick="scrollToForm()" style="padding: 0.6rem 1.2rem; border-radius: 8px; background-color: #543310; color: #FFF8E1; border: none; font-size: 1rem;">Mulai Sekarang</button>
+
+      </div>
+    </section>
+    <section class="info-section" >
+      <h2 style="margin-top: 3rem; color: #2c3e50;">Kenapa Kafein Penting?</h2>
+      <p style="font-size: medium; color: #2c3e50;">Kafein adalah stimulan yang dapat meningkatkan fokus dan energi. Namun, konsumsi berlebihan bisa berbahaya. Mari kita hitung seberapa banyak kafein yang kamu konsumsi hari ini!</p>
+
+    <section class="form-section" id="form">
+      <div style="max-width: 300px; margin: 2rem auto;">
+      <label for="nama" style="font-size: large;">Nama:</label><br/>
       <input type="text" id="nama" placeholder="Masukkan nama kamu" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;"><br/><br/>
 
-      <label for="umur">Umur:</label><br/>
+      <label for="umur" style="font-size: large;">Umur:</label><br/>
       <input type="number" id="umur" placeholder="Contoh: 17" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;"><br/><br/>
 
-      <button onclick="mulai()" style="padding: 0.6rem 1.2rem; border-radius: 8px; background-color: #333; color: white; border: none; font-size: 1rem;">
-        Mulai
+      <button onclick="mulai()" style="padding: 0.6rem 1.2rem; border-radius: 8px; background-color: #3E2723; color: #FFF8E1; border: none; font-size: 1rem;">
+        Cek konsumsi Kafein
       </button>
+    </section>
+
+    <footer>
+      <h4>Coffein Seeker</h4>
+      <p>© 2025 by TIM_GACOR</p>
+      <p>Data kafein berdasarkan WHO & FDA</p>
+    </footer>
+    
     </div>
   </div>
 
@@ -41,6 +61,12 @@
 
       // Redirect ke halaman kalkulator dengan parameter nama
       window.location.href = `kalkulator.html?nama=${encodeURIComponent(nama)}`;
+
+
+    }
+
+    function scrollToForm() {
+      document.getElementById("form").scrollIntoView({behavior: "smooth"});
     }
   </script>
 </body>
