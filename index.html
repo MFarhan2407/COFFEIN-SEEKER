@@ -1,0 +1,48 @@
+ JS
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coffein Seeker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-container" style="text-align: center; margin-top: 80px;">
+    <h1>☕ COFFEIN SEEKER</h1>
+    <h2>Welcome!</h2>
+
+    <div style="max-width: 300px; margin: 2rem auto;">
+      <label for="nama">Nama:</label><br/>
+      <input type="text" id="nama" placeholder="Masukkan nama kamu" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;"><br/><br/>
+
+      <label for="umur">Umur:</label><br/>
+      <input type="number" id="umur" placeholder="Contoh: 17" style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;"><br/><br/>
+
+      <button onclick="mulai()" style="padding: 0.6rem 1.2rem; border-radius: 8px; background-color: #333; color: white; border: none; font-size: 1rem;">
+        Mulai
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function mulai() {
+      const nama = document.getElementById("nama").value.trim();
+      const umur = Number(document.getElementById("umur").value);
+
+      if (!nama || !umur) {
+        alert("Silakan isi nama dan umur terlebih dahulu.");
+        return;
+      }
+
+      if (umur < 13) {
+        alert("Kamu belum boleh minum kopi 😢");
+        return;
+      }
+
+      // Redirect ke halaman kalkulator dengan parameter nama
+      window.location.href = `kalkulator.html?nama=${encodeURIComponent(nama)}`;
+    }
+  </script>
+</body>
+</html>
