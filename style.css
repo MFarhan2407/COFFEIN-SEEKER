@@ -1,3 +1,7 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #E4E0E1;
@@ -12,7 +16,7 @@ body {
   background: white;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -39,43 +43,12 @@ input {
   font-size: 1rem;
 }
 
-button {
-  margin-top: 2rem;
-  width: 100%;
-  background-color: #27ae60;
-  color: white;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-}
 
-button:hover {
-  background-color: #219150;
-}
 
 #salam {
   margin-top: 1.5rem;
   font-size: 1.1rem;
   color: #34495e;
-}
-
-
-
-.nav-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #D7CCC8;
-}
-
-.nav-bar .logo {
-font-family: 'Playfair Display', serif;
-font-size: 2rem;
-font-weight: bold;
-
 }
 
 .card-box {
@@ -138,7 +111,7 @@ font-weight: bold;
   margin: 1.5rem auto;
   max-width: 400px;
   background-color: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
@@ -221,7 +194,7 @@ font-weight: bold;
   scroll-snap-align: start;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   text-align: center;
   padding: 1rem 0.5rem;
   cursor: pointer;
@@ -246,9 +219,10 @@ font-weight: bold;
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  background-color: #D6C0B3;;
+  background-color: #D6C0B3;
+  ;
   text-align: center;
-  
+
 }
 
 .awal-text {
@@ -283,9 +257,12 @@ font-weight: bold;
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-
+.awal-text button:hover {
+  background-color: #8D6E63;
+  transform: translateY(-5px);
 }
 
 .form-section {
@@ -294,8 +271,9 @@ font-weight: bold;
   background: #FFFFFF;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 .form-section {
   font-family: 'Playfair Display', serif;
   margin-bottom: 4rem;
@@ -320,13 +298,15 @@ font-weight: bold;
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .form-section button:hover {
   background-color: #8D6E63;
-  transition: background-color 0.5s ease; 
+  transform: translateY(-3px);
 
 }
+
 footer {
   background-color: #3E2723;
   color: white;
@@ -334,6 +314,7 @@ footer {
   text-align: center;
   margin-top: 4rem;
 }
+
 footer h4 {
   margin: 0.5rem 0;
 
@@ -345,5 +326,108 @@ footer h4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 20px;
-  display: block; 
+  display: block;
+}
+
+.logo2 {
+  width: 100px;
+  height: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1px;
+  display: block;
+}
+
+/* Style untuk file kalkulator */
+
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #D6C0B3;
+}
+
+nav #logo img {
+  width: 100%;
+  height: 100%;
+
+}
+nav #logo {
+  width: 100px;
+  height: 60px;
+}
+
+#nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  
+}
+
+#nav a {
+  text-decoration: none;
+  color: #3E2723;
+  font-weight: bold;
+
+}
+
+#halo-user  {
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.cards {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.cardIMG {
+  padding: 10px;
+}
+
+.card {
+  width: 200px;
+  height: auto;
+
+  
+}
+
+.cardIMG img {
+  border-radius: 5%;
+  width: 100%;
+
+}
+
+.card-text {
+  padding: 10px;
+}
+
+.card-text span {
+  font-weight: bold;
+}
+
+.card-button {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  background-color: #8D6E63;
+  border-radius: 8px;
+   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-button:hover{
+  background-color: #3E2723;
+  cursor: pointer;
+  transform: translateY(-5px);
+  color: whitesmoke;
 }
