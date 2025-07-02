@@ -9,51 +9,70 @@ function ambilNamaDariURL() {
   const params = new URLSearchParams(window.location.search);
   const nama = params.get("nama");
   if (nama) {
-    document.getElementById("halo-user").textContent = "HALO " + nama.toUpperCase() + "!";
+    document.getElementById("halo-user").textContent =
+      "HALO " + nama.toUpperCase() + "!";
   }
 }
 
 const daftarMinuman = [
-  { nama: "Americano", img: "img/americano.png", defaultCaffeine: 70 },
-  { nama: "Cappuccino", img: "img/cappuccino.png", defaultCaffeine: 70 },
-  { nama: "Cafe Mocha", img: "img/mocha.png", defaultCaffeine: 70 },
-  { nama: "Cafe latte", img: "img/cafelatte.png", defaultCaffeine: 70 },
-  { nama: "", img: "img/cafelatte.png", defaultCaffeine: 70 },
-  { nama: "", img: "img/cafelatte.png", defaultCaffeine: 70 },
-  { nama: "", img: "img/cafelatte.png", defaultCaffeine: 70 },
-  { nama: "", img: "img/cafelatte.png", defaultCaffeine: 70 },
-  { nama: "", img: "img/cafelatte.png", defaultCaffeine: 70 },
-  { nama: "", img: "img/cafelatte.png", defaultCaffeine: 70 },
+  {
+    name: "Vietnamese Coffee",
+    img: "IMAGE/vietnamese-coffee.png",
+    caffeine: 98,
+  },
+  {
+    name: "Espresso Single Shot",
+    img: "IMAGE/espresso-shot.jpg",
+    caffeine: 112,
+  },
+  {
+    name: "Espresso Based Drink",
+    img: "IMAGE/Cappuccino(1).jpg",
+    caffeine: 112,
+  },
+  {
+    name: "Espresso Based Drink",
+    img: "IMAGE/Cappuccino(1).jpg",
+    caffeine: 112,
+  },
+  {
+    name: "Espresso Based Drink",
+    img: "IMAGE/Cappuccino(1).jpg",
+    caffeine: 112,
+  },
+  {
+    name: "Espresso Based Drink",
+    img: "IMAGE/Cappuccino(1).jpg",
+    caffeine: 112,
+  },
+  {
+    name: "Espresso Based Drink",
+    img: "IMAGE/Cappuccino(1).jpg",
+    caffeine: 112,
+  },
 ];
 
 function tampilkanDaftarMinuman() {
-  const container = document.getElementById("minuman-list");
-  container.innerHTML = "";
-
-  daftarMinuman.forEach((minuman) => {
-    const card = document.createElement("div");
-    card.className = "card-menu";
-    card.innerHTML = `
-      <img src="${minuman.img}" alt="${minuman.nama}" />
-      <p>${minuman.nama}</p>
-    `;
-    card.addEventListener("click", function () {
-      tampilkanDetail(minuman);
-    });
-    container.appendChild(card);
-  });
-
-  // Tambahkan tombol custom
-  const tambahSendiri = document.createElement("div");
-  tambahSendiri.className = "card-menu";
-  tambahSendiri.innerHTML = `
-    <div style="font-size: 3rem; margin-top: 20px;">+</div>
-    <p>Tambah Sendiri</p>
+  let cards = document.getElementsByClassName("cards")[0];
+  let innerCard = "";
+  for (let i = 0; i < daftarMinuman.length; i++) {
+    let { name, img, caffeine } = daftarMinuman[i];
+    innerCard += `
+    <div class="card">
+      <div class="cardIMG">
+        <img src="${img}" alt="">
+      </div>
+      <div class="card-text">
+        <span>${name}</span>
+        <p>${caffeine} mg</p>
+      </div>
+      <div class="button-container">
+        <button class="card-button">Tambah</button>
+      </div>
+    </div>
   `;
-  tambahSendiri.addEventListener("click", function () {
-    tampilkanFormCustom();
-  });
-  container.appendChild(tambahSendiri);
+  }
+  cards.innerHTML = innerCard;
 }
 
 function tampilkanDetail(minuman) {
@@ -183,7 +202,7 @@ function aktifkanCounter(container, minuman) {
   let jenis = "Arabica";
 
   function updateKafein() {
-    let multiplier = (jenis === "Robusta") ? 2 : 1;
+    let multiplier = jenis === "Robusta" ? 2 : 1;
     let total = minuman.defaultCaffeine * count * multiplier;
     totalInput.value = `${total} mg`;
     countElem.textContent = count;
@@ -201,7 +220,7 @@ function aktifkanCounter(container, minuman) {
 
   jenisBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      jenisBtns.forEach(b => b.classList.remove("selected"));
+      jenisBtns.forEach((b) => b.classList.remove("selected"));
       btn.classList.add("selected");
       jenis = btn.textContent;
       updateKafein();
@@ -215,7 +234,7 @@ function aktifkanPilihanEksklusif(container, selector, activeClass) {
   const buttons = container.querySelectorAll(selector);
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      buttons.forEach(b => b.classList.remove(activeClass));
+      buttons.forEach((b) => b.classList.remove(activeClass));
       btn.classList.add(activeClass);
     });
   });
