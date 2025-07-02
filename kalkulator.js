@@ -17,7 +17,13 @@ const daftarMinuman = [
   { nama: "Americano", img: "img/americano.png", defaultCaffeine: 70 },
   { nama: "Cappuccino", img: "img/cappuccino.png", defaultCaffeine: 70 },
   { nama: "Cafe Mocha", img: "img/mocha.png", defaultCaffeine: 70 },
-  { nama: "Cafe latte", img: "img/cafelatte.png", defaultCaffeine: 70 }
+  { nama: "Cafe latte", img: "img/cafelatte.png", defaultCaffeine: 70 },
+  { nama: "", img: "img/cafelatte.png", defaultCaffeine: 70 },
+  { nama: "", img: "img/cafelatte.png", defaultCaffeine: 70 },
+  { nama: "", img: "img/cafelatte.png", defaultCaffeine: 70 },
+  { nama: "", img: "img/cafelatte.png", defaultCaffeine: 70 },
+  { nama: "", img: "img/cafelatte.png", defaultCaffeine: 70 },
+  { nama: "", img: "img/cafelatte.png", defaultCaffeine: 70 },
 ];
 
 function tampilkanDaftarMinuman() {

@@ -2,14 +2,22 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body {
+body.welcome-mode {
   font-family: 'Poppins', sans-serif;
-  background-color: #E4E0E1;
   margin: 0;
   color: #3E2723;
-
+  background: url('IMAGE/326662-coffee-cup-wallpaper-6609-full-hd-wallpaper-desktop-res.jpg') no-repeat center center fixed;
+  background-size: cover;
+  /* background-repeat: no-repeat;
+  background-position: center; */
 }
 
+body.page-mode {
+  background: url('IMAGE/portrait-young-asian-lady-barista-waitress-holding-coffee-cup-feeling-happy-urban-cafe.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0px;
+  padding: 0px;
+}
 .welcome-container {
   max-width: 400px;
   margin: 80px auto;
@@ -219,8 +227,8 @@ input {
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  background-color: #D6C0B3;
-  ;
+  background-color: rgba(255, 255, 255, 0.2);
+  /* min-height: 100vh; */
   text-align: center;
 
 }
@@ -240,13 +248,16 @@ input {
   text-align: center;
   max-width: 800px;
   overflow-wrap: break-word;
+  color: whitesmoke;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .awal-text p {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-bottom: 0.5rem;
   font-size: large;
-  color: #2c3e50;
+  color: whitesmoke;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
   padding-bottom: 10px;
 }
 
@@ -269,16 +280,17 @@ input {
 .form-section {
   max-width: 400px;
   margin: 10rem auto;
-  background: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.2);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
 }
 
 .form-section {
   font-family: 'Playfair Display', serif;
   margin-bottom: 4rem;
-
+  color: whitesmoke;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .form-section input {
@@ -286,8 +298,9 @@ input {
   padding: 0.6rem;
   margin-bottom: 1rem;
   border-radius: 8px;
-  border: 1px solid #CCC;
   font-size: 1rem;
+  color: whitesmoke;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .form-section button {
@@ -309,8 +322,8 @@ input {
 }
 
 footer {
-  background-color: #3E2723;
-  color: white;
+  background-color: #3C2A21;
+  color: #827c55;
   padding: 2rem;
   text-align: center;
   /* margin-top: ; */
@@ -322,7 +335,7 @@ footer h4 {
 }
 
 .logo {
-  width: 120px;
+  width: 150px;
   height: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -347,7 +360,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color: #D6C0B3;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 nav #logo img {
@@ -399,11 +412,11 @@ nav #logo {
   width: 200px;
   height: auto;
   background-color: #D6C0B3;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .cardIMG img {
-  border-radius: 5%;
+  border-radius: 6px;
   width: 100%;
 
 }
