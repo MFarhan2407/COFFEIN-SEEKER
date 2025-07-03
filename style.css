@@ -3,17 +3,19 @@
 }
 
 body.welcome-mode {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
-  color: #3E2723;
-  background: url('IMAGE/326662-coffee-cup-wallpaper-6609-full-hd-wallpaper-desktop-res.jpg') no-repeat center center fixed;
+  color: #3e2723;
+  background: url("IMAGE/326662-coffee-cup-wallpaper-6609-full-hd-wallpaper-desktop-res.jpg")
+    no-repeat center center fixed;
   background-size: cover;
   /* background-repeat: no-repeat;
   background-position: center; */
 }
 
 body.page-mode {
-  background: url('IMAGE/portrait-young-asian-lady-barista-waitress-holding-coffee-cup-feeling-happy-urban-cafe.jpg') no-repeat center center fixed;
+  background: url("IMAGE/portrait-young-asian-lady-barista-waitress-holding-coffee-cup-feeling-happy-urban-cafe.jpg")
+    no-repeat center center fixed;
   background-size: cover;
   margin: 0px;
   padding: 0px;
@@ -316,7 +318,7 @@ input {
 }
 
 footer {
-  background-color: #3C2A21;
+  background-color: #3c2a21;
   color: #827c55;
   padding: 2rem;
   text-align: center;
@@ -352,7 +354,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  background-color: #D6C0B3;
+  background-color: #d6c0b3;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -386,7 +388,8 @@ nav #logo {
   display: flex;
   /* font-weight: bold; */
   font-size: 16px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin-right: 2rem;
 }
 
@@ -407,7 +410,7 @@ nav #logo {
 .card {
   width: 200px;
   height: auto;
-  background-color: #D6C0B3;
+  background-color: #d6c0b3;
   border-radius: 8px;
 }
 
@@ -450,7 +453,7 @@ nav #logo {
 }
 
 .result {
-  background-color: rgba(0, 0, 0, 0.3) ;
+  background-color: rgba(0, 0, 0, 0.3);
   padding: 1.5rem;
   border-radius: 16px;
   width: 75%;
@@ -458,16 +461,14 @@ nav #logo {
   justify-content: space-between;
   display: flex;
   margin: auto;
-  
 }
 
 .result-text {
   text-align: center;
-  text-shadow:1px 1px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
   color: whitesmoke;
   font-weight: bold;
   font-size: xx-large;
-
 }
 /* .result-text p {
   display: flex;
@@ -476,7 +477,6 @@ nav #logo {
   color: black;
   font-family: Aharoni;
 } */
-
 
 .result img {
   width: 500px;
@@ -491,22 +491,20 @@ nav #logo {
   flex-direction: column;
   backdrop-filter: blur(2px);
 
-
   /* box-shadow: 5px 5px 0px 0px rgba(255, 255, 255, 0.2); */
- 
 }
 #text-kiri {
   text-align: left;
   padding-left: 10px;
   text-shadow: #3e2723;
   color: whitesmoke;
-  text-shadow:1px 1px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
   font-size: medium;
   font-weight: bold;
 }
 #farhan {
   text-align: center;
-  text-shadow:1px 1px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
   color: whitesmoke;
   font-weight: bold;
   font-size: xx-large;
@@ -515,16 +513,14 @@ nav #logo {
 }
 #list-riwayat {
   text-align: left;
-  text-shadow:1px 1px 4px rgba(0, 0, 0, 0.6);
-  color:whitesmoke;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  color: whitesmoke;
   font-size: small;
   padding-bottom: 20px;
-  
-
 }
 #Total-konsumsi {
   text-align: left;
-  text-shadow:1px 1px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
   color: whitesmoke;
   font-weight: bold;
   font-size: medium;
@@ -533,9 +529,13 @@ nav #logo {
 #saran {
   text-align: left;
   /* text-shadow:1px 1px 4px rgba(0, 0, 0, 0.6); */
-  color:whitesmoke;
+  color: whitesmoke;
   font-size: large;
   padding: 30px;
   padding-top: 0px;
   padding-bottom: 10px;
+}
+
+.delete-button {
+  margin-left: 10px;
 }

@@ -9,8 +9,7 @@ function ambilNamaDariURL() {
   const params = new URLSearchParams(window.location.search);
   const nama = params.get("nama");
   if (nama) {
-    document.getElementById("halo-user").textContent =
-      "Halo " + nama + "!";
+    document.getElementById("halo-user").textContent = "Halo " + nama + "!";
   }
 }
 
@@ -99,16 +98,13 @@ function summary(name, caffeine) {
       });
     }
   }
+  renderSummary();
+}
 
+function renderSummary() {
   let innerSummary = ``;
   const summaryText = document.getElementsByClassName("result-card")[0];
 
-  // innerSummary += `
-  // <p style="font-weight: bold; font-size: large; ">Daily Summary</p>
-  // <p>Riwayat minuman: </p>
-  // <ul id="list-riwayat" style="color: white"></ul>
-  // <p>Total konsumsi kafein = ${totalCaffeine} mg</p>
-  // `;
   innerSummary += `
   <p id="farhan" >Daily Summary</p>
   <p id="text-kiri">Riwayat minuman: </p>
@@ -122,7 +118,10 @@ function summary(name, caffeine) {
     const addList = document.createElement("li");
     let { name, caffeine, totalCup } = daftarRiwayatMinuman[i];
 
-    addList.innerText = `${totalCup} ${name} dengan kandungan kafein ${caffeine} mg`;
+    addList.innerHTML = `${totalCup} ${name} dengan kandungan kafein ${
+      caffeine * totalCup
+    } mg
+    <button class="delete-button" onclick="deleteItem('${name}', ${caffeine}, ${totalCup})">-</button>`;
     listRiwayat.appendChild(addList);
   }
 
@@ -143,6 +142,22 @@ function summary(name, caffeine) {
     <p id="saran">Anda hanya mengonsumsi sedikit kafein hari ini. Jika butuh tambahan energi, boleh pertimbangkan 1 porsi lagi, tetapi tetap perhatikan waktu agar tidak mengganggu tidur.</p>
     `;
   }
+}
+
+function deleteItem(name, caffeine) {
+  for (let i = 0; i < daftarRiwayatMinuman.length; i++) {
+    if (name === daftarRiwayatMinuman[i].name) {
+      if (daftarRiwayatMinuman[i].totalCup > 0) {
+        daftarRiwayatMinuman[i].totalCup--;
+        totalCaffeine -= caffeine;
+        if (daftarRiwayatMinuman[i].totalCup === 0) {
+          daftarRiwayatMinuman.splice(i, 1);
+        }
+      }
+    }
+  }
+  console.log(daftarRiwayatMinuman);
+  renderSummary();
 }
 
 function tampilkanDetail(minuman) {
