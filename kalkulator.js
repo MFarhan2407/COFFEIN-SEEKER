@@ -81,7 +81,39 @@ function tampilkanDaftarMinuman() {
     </div>
   `;
   }
+  innerCard += `
+  <div class="card">
+    <div class="cardIMG">
+      <img src="IMAGE/add-coffee.png" alt="Custom Drink" />
+    </div>
+    <div class="card-text">
+      <input type="text" id="custom-nama" placeholder="Nama Minuman" style="margin-bottom:5px; width: 100%; padding: 4px;color: white; background-color: rgba(0, 0, 0, 0.5);" />
+      <input type="number" id="custom-kafein" placeholder="mg Kafein" style="width: 100%; padding: 4px; color: white; background-color: rgba(0, 0, 0, 0.5);" />
+    </div>
+    <div class="button-container">
+      <button class="card-button" onclick="tambahCardCustom()">Tambah</button>
+    </div>
+  </div>
+`;
   cards.innerHTML = innerCard;
+}
+
+function tambahCardCustom() {
+  const namaInput = document.getElementById("custom-nama").value.trim();
+  const kafeinInput = Number(document.getElementById("custom-kafein").value);
+
+  if (!namaInput || isNaN(kafeinInput) || kafeinInput <= 0) {
+    alert("Isi nama dan kafein dengan benar.");
+    return;
+  }
+
+  daftarMinuman.push({
+    name: namaInput,
+    img: "IMAGE/Cappuccino(1).jpg", // default image
+    caffeine: kafeinInput,
+  });
+
+  tampilkanDaftarMinuman(); // render ulang
 }
 
 let totalCaffeine = 0;
@@ -136,20 +168,37 @@ function renderSummary() {
   }
 
   if (totalCaffeine > 400) {
+    alert("⚠️❗ SEBAIKNYA STOP MINUM KOPI ❗⚠️");
     summaryText.innerHTML += `
-    <p id="saran">Anda telah mengonsumsi kafein harian melebihi batas aman. Jika mengalami gejala seperti jantung berdebar atau sulit tidur, segera periksakan diri.</p>
+    <p id="saran"> 🛑⛔️✋🏻 Anda telah mengonsumsi kafein harian melebihi batas aman, stop minum kopi ✋🏻⛔️🛑
+    <br> 🚨 Risiko: Jantung berdebar, tremor, mual, insomnia.
+    <br> ‼️ Peringatan: Jika gejala muncul, segera konsultasikan ke dokter!
+    </p>
     `;
   } else if (totalCaffeine >= 300) {
+    alert("⚠️ Hati-hati kebanyakan ⚠️");
     summaryText.innerHTML += `
-    <p id="saran">Konsumsi kafein Anda mendekati batas aman harian. Sebaiknya hindari menambah asupan, terutama jika mendekati malam, agar tidak mengganggu tidur dan ritme biologis.</p>
+    <p id="saran">🟡 ⚠️ Konsumsi kafein Anda mendekati batas aman harian. Sebaiknya hindari menambah asupan, terutama jika mendekati malam, agar tidak mengganggu tidur dan ritme biologis ⚠️
+    <br> 🚨 Risiko: Bisa mulai gelisah, susah tidur.
+    <br> 📢 Saran: Sebaiknya hentikan konsumsi untuk hari ini. Perhatikan respon tubuh dan hindari aktivitas yang bisa menambah stres.
+    </p>
     `;
-  } else if (totalCaffeine > 200) {
+  } else if (totalCaffeine > 120) {
     summaryText.innerHTML += `
-    <p id="saran">Konsumsi kafein Anda masih dalam batas sehat. Jaga jeda antara minuman dan pastikan tidak bergantung secara berlebihan.</p>
+    <p id="saran">🟢 Konsumsi kafein Anda masih dalam batas sehat. Jaga jeda antara minuman dan pastikan tidak bergantung secara berlebihan.
+    <br> 📢 Saran: Tetap jaga jeda konsumsi, jangan berlebihan.
+    <br> ℹ️ Tips: Imbangi dengan tidur cukup dan pola makan sehat.
+    </p>
+    `;
+  } else if (totalCaffeine > 1) {
+    summaryText.innerHTML += `
+    <p id="saran">🟢 Anda baru mengonsumsi sedikit kafein hari ini. 
+    <br> 📢 Saran: Boleh tambah 1-2 porsi jika butuh energi, tapi tetap perhatikan waktu konsumsi.
+    </p>
     `;
   } else {
     summaryText.innerHTML += `
-    <p id="saran">Anda hanya mengonsumsi sedikit kafein hari ini. Jika butuh tambahan energi, boleh pertimbangkan 1 porsi lagi, tetapi tetap perhatikan waktu agar tidak mengganggu tidur.</p>
+    <p id="saran">Anda belum mengkonsumsi kafein</p>
     `;
   }
 }
@@ -175,115 +224,13 @@ function tampilkanDetail(minuman) {
   detail.style.display = "block";
 
   detail.innerHTML = `
-    <section class="kopi-detail-card">
-      <img src="${minuman.img}" alt="${minuman.nama}" class="kopi-img" />
-      <h3>${minuman.nama}</h3>
-
-      <div class="opsi-group">
-        <label>Ukuran:</label>
-        <div class="opsi-pilihan">
-          <button class="size-btn selected">Standar</button>
-          <button class="size-btn">Kecil</button>
-          <button class="size-btn">Besar</button>
-        </div>
-      </div>
-
-      <div class="opsi-group">
-        <label>Temperature:</label>
-        <div class="opsi-pilihan">
-          <button class="temp-btn selected">Hot</button>
-          <button class="temp-btn">Ice</button>
-        </div>
-      </div>
-
-      <div class="opsi-group">
-        <label>Jenis Kopi:</label>
-        <div class="opsi-pilihan">
-          <button class="jenis-btn selected">Arabica</button>
-          <button class="jenis-btn">Robusta</button>
-        </div>
-      </div>
-
-      <div class="opsi-group">
-        <label>Jumlah Shot:</label>
-        <div class="counter-box">
-          <button class="minus-btn">-</button>
-          <span class="shot-count">1</span>
-          <button class="plus-btn">+</button>
-        </div>
-      </div>
-
-      <div class="opsi-group">
-        <label>Total Kafein:</label>
-        <input type="text" class="kafein-total" value="${minuman.defaultCaffeine} mg" readonly />
-      </div>
-    </section>
+    
   `;
 
   aktifkanCounter(detail, minuman);
   aktifkanPilihanEksklusif(detail, ".size-btn", "selected");
   aktifkanPilihanEksklusif(detail, ".temp-btn", "selected");
   aktifkanJenisKopiListener(detail, minuman);
-}
-
-function tampilkanFormCustom() {
-  const detail = document.getElementById("detail-section");
-  detail.style.display = "block";
-
-  detail.innerHTML = `
-    <section class="kopi-detail-card">
-      <h3>Minuman Custom</h3>
-
-      <div class="opsi-group">
-        <label>Nama Minuman:</label>
-        <input type="text" class="nama-minuman-custom" placeholder="Contoh: Kopi Tubruk" />
-      </div>
-
-      <div class="opsi-group">
-        <label>Ukuran:</label>
-        <div class="opsi-pilihan">
-          <button class="size-btn selected">Standar</button>
-          <button class="size-btn">Kecil</button>
-          <button class="size-btn">Besar</button>
-        </div>
-      </div>
-
-      <div class="opsi-group">
-        <label>Temperature:</label>
-        <div class="opsi-pilihan">
-          <button class="temp-btn selected">Hot</button>
-          <button class="temp-btn">Ice</button>
-        </div>
-      </div>
-
-      <div class="opsi-group">
-        <label>Jenis Kopi:</label>
-        <div class="opsi-pilihan">
-          <button class="jenis-btn selected">Arabica</button>
-          <button class="jenis-btn">Robusta</button>
-        </div>
-      </div>
-
-      <div class="opsi-group">
-        <label>Jumlah Shot:</label>
-        <div class="counter-box">
-          <button class="minus-btn">-</button>
-          <span class="shot-count">1</span>
-          <button class="plus-btn">+</button>
-        </div>
-      </div>
-
-      <div class="opsi-group">
-        <label>Total Kafein:</label>
-        <input type="text" class="kafein-total" value="80 mg" readonly />
-      </div>
-    </section>
-  `;
-
-  aktifkanCounter(detail, { defaultCaffeine: 70 });
-  aktifkanPilihanEksklusif(detail, ".size-btn", "selected");
-  aktifkanPilihanEksklusif(detail, ".temp-btn", "selected");
-  aktifkanJenisKopiListener(detail, { defaultCaffeine: 70 });
 }
 
 function aktifkanCounter(container, minuman) {
