@@ -53,9 +53,16 @@
         alert("Silakan isi nama dan umur terlebih dahulu.");
         return;
       }
-
       if (umur < 13) {
         alert("Kamu belum boleh minum kopi 😢");
+        return;
+      }
+      if (umur > 80 && umur <= 125) {
+      alert("⚠️ Demi alasan kesehatan, kami menyarankan untuk membatasi atau menghindari konsumsi kopi bagi pengguna berusia di atas 80 tahun.");
+        return;
+      }
+      if (umur > 125) {
+        alert("Kamu manusia?");
         return;
       }
 
