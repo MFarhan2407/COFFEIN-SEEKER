@@ -79,8 +79,26 @@ let totalCaffeine = 0;
 let daftarRiwayatMinuman = [];
 
 function summary(name, caffeine) {
+  let found = false;
   totalCaffeine += caffeine;
-  daftarRiwayatMinuman.push({ name: name, caffeine: caffeine });
+  if (daftarRiwayatMinuman.length === 0) {
+    daftarRiwayatMinuman.push({ name: name, caffeine: caffeine, totalCup: 1 });
+  } else {
+    for (let i = 0; i < daftarRiwayatMinuman.length; i++) {
+      if (daftarRiwayatMinuman[i].name === name) {
+        daftarRiwayatMinuman[i].totalCup++;
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      daftarRiwayatMinuman.push({
+        name: name,
+        caffeine: caffeine,
+        totalCup: 1,
+      });
+    }
+  }
 
   let innerSummary = ``;
   const summaryText = document.getElementsByClassName("result-card")[0];
@@ -97,9 +115,9 @@ function summary(name, caffeine) {
   const listRiwayat = document.getElementById("list-riwayat");
   for (let i = 0; i < daftarRiwayatMinuman.length; i++) {
     const addList = document.createElement("li");
-    let { name, caffeine } = daftarRiwayatMinuman[i];
+    let { name, caffeine, totalCup } = daftarRiwayatMinuman[i];
 
-    addList.innerText = `${name} dengan kandungan kafein ${caffeine} mg`;
+    addList.innerText = `${totalCup} ${name} dengan kandungan kafein ${caffeine} mg`;
     listRiwayat.appendChild(addList);
   }
 
