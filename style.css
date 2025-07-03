@@ -443,7 +443,7 @@ nav #logo {
 }
 
 .result {
-  background-color: #D6C0B3 ;
+  background-color: rgba(0, 0, 0, 0.3) ;
   width: 100%;
   justify-content: space-between;
   display: flex;
@@ -463,7 +463,8 @@ nav #logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #3e2723;
+  color: black;
+  font-family: Aharoni;
 }
 
 .result img {
@@ -471,10 +472,10 @@ nav #logo {
   height: 500px;
 }
 .result-card {
-  background-color: #e4e0e1;
+  background-color: rgba(255, 255, 255, 0.6);
   width: 100%;
   /* display: flex; */
   justify-content: center;
   border-radius: 5px;
-  box-shadow: 10px 10px 0px 0px #3e2723;
+  box-shadow: 5px 5px 0px 0px rgba(255, 255, 255, 0.2);
 }
