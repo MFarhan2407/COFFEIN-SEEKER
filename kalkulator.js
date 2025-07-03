@@ -84,14 +84,15 @@ function tampilkanDaftarMinuman() {
   innerCard += `
   <div class="card">
     <div class="cardIMG">
-      <img src="IMAGE/add-coffee.png" alt="Custom Drink" />
+      <img src="https://plus.unsplash.com/premium_photo-1675435646793-f6ceb239b064?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Custom Drink" />
     </div>
     <div class="card-text">
       <input type="text" id="custom-nama" placeholder="Nama Minuman" style="margin-bottom:5px; width: 100%; padding: 4px;color: white; background-color: rgba(0, 0, 0, 0.5);" />
-      <input type="number" id="custom-kafein" placeholder="mg Kafein" style="width: 100%; padding: 4px; color: white; background-color: rgba(0, 0, 0, 0.5);" />
+      <input type="number" id="custom-kafein" placeholder="mg Kafein" style="width: 100%; margin-bottom: 3px; padding: 4px; color: white; background-color: rgba(0, 0, 0, 0.5);" />
+      <input type="text" id="custom-foto" placeholder="URL foto" style="width: 100%; padding: 4px;color: white; background-color: rgba(0, 0, 0, 0.5);" />
     </div>
     <div class="button-container">
-      <button class="card-button" onclick="tambahCardCustom()">Tambah</button>
+      <button class="card-button" onclick="tambahCardCustom()">Tambah Minuman</button>
     </div>
   </div>
 `;
@@ -101,6 +102,7 @@ function tampilkanDaftarMinuman() {
 function tambahCardCustom() {
   const namaInput = document.getElementById("custom-nama").value.trim();
   const kafeinInput = Number(document.getElementById("custom-kafein").value);
+  const fotoInput = document.getElementById("custom-foto").value.trim();
 
   if (!namaInput || isNaN(kafeinInput) || kafeinInput <= 0) {
     alert("Isi nama dan kafein dengan benar.");
@@ -109,7 +111,7 @@ function tambahCardCustom() {
 
   daftarMinuman.push({
     name: namaInput,
-    img: "IMAGE/Cappuccino(1).jpg", // default image
+    img: fotoInput, // default image
     caffeine: kafeinInput,
   });
 
@@ -217,69 +219,6 @@ function deleteItem(name, caffeine) {
   }
   console.log(daftarRiwayatMinuman);
   renderSummary();
-}
-
-function tampilkanDetail(minuman) {
-  const detail = document.getElementById("detail-section");
-  detail.style.display = "block";
-
-  detail.innerHTML = `
-    
-  `;
-
-  aktifkanCounter(detail, minuman);
-  aktifkanPilihanEksklusif(detail, ".size-btn", "selected");
-  aktifkanPilihanEksklusif(detail, ".temp-btn", "selected");
-  aktifkanJenisKopiListener(detail, minuman);
-}
-
-function aktifkanCounter(container, minuman) {
-  const plusBtn = container.querySelector(".plus-btn");
-  const minusBtn = container.querySelector(".minus-btn");
-  const countElem = container.querySelector(".shot-count");
-  const jenisBtns = container.querySelectorAll(".jenis-btn");
-  const totalInput = container.querySelector(".kafein-total");
-
-  let count = 1;
-  let jenis = "Arabica";
-
-  function updateKafein() {
-    let multiplier = jenis === "Robusta" ? 2 : 1;
-    let total = minuman.defaultCaffeine * count * multiplier;
-    totalInput.value = `${total} mg`;
-    countElem.textContent = count;
-  }
-
-  plusBtn.addEventListener("click", () => {
-    count++;
-    updateKafein();
-  });
-
-  minusBtn.addEventListener("click", () => {
-    if (count > 1) count--;
-    updateKafein();
-  });
-
-  jenisBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      jenisBtns.forEach((b) => b.classList.remove("selected"));
-      btn.classList.add("selected");
-      jenis = btn.textContent;
-      updateKafein();
-    });
-  });
-
-  updateKafein();
-}
-
-function aktifkanPilihanEksklusif(container, selector, activeClass) {
-  const buttons = container.querySelectorAll(selector);
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      buttons.forEach((b) => b.classList.remove(activeClass));
-      btn.classList.add(activeClass);
-    });
-  });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
