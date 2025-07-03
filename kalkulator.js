@@ -220,55 +220,6 @@ function deleteItem(name, caffeine) {
 }
 
 
-function aktifkanCounter(container, minuman) {
-  const plusBtn = container.querySelector(".plus-btn");
-  const minusBtn = container.querySelector(".minus-btn");
-  const countElem = container.querySelector(".shot-count");
-  const jenisBtns = container.querySelectorAll(".jenis-btn");
-  const totalInput = container.querySelector(".kafein-total");
-
-  let count = 1;
-  let jenis = "Arabica";
-
-  function updateKafein() {
-    let multiplier = jenis === "Robusta" ? 2 : 1;
-    let total = minuman.defaultCaffeine * count * multiplier;
-    totalInput.value = `${total} mg`;
-    countElem.textContent = count;
-  }
-
-  plusBtn.addEventListener("click", () => {
-    count++;
-    updateKafein();
-  });
-
-  minusBtn.addEventListener("click", () => {
-    if (count > 1) count--;
-    updateKafein();
-  });
-
-  jenisBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      jenisBtns.forEach((b) => b.classList.remove("selected"));
-      btn.classList.add("selected");
-      jenis = btn.textContent;
-      updateKafein();
-    });
-  });
-
-  updateKafein();
-}
-
-function aktifkanPilihanEksklusif(container, selector, activeClass) {
-  const buttons = container.querySelectorAll(selector);
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      buttons.forEach((b) => b.classList.remove(activeClass));
-      btn.classList.add(activeClass);
-    });
-  });
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   ambilNamaDariURL();
   tampilkanDaftarMinuman();
