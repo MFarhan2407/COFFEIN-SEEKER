@@ -14,19 +14,22 @@
     <div id="logo">
       <img src="IMAGE/Modern_Initial_MB_Logo_2_-removebg-preview-copy.png" alt="">
     </div>
-    <div class="user-greeting" id="halo-user">HALO!</div>
     <div id="nav">
+      <div id="halo-user">HALO!</div>
       <a href="index.html">Kembali</a>
       <a href="#">Beranda</a>
-      <a href="#">Cek Kafein</a>
+      <button onclick="scrollToMinuman()" style="border: none; background: none; font-weight: bold; font-size: medium;">
+        Cek Kafein
+      </button>
+   
     </div>
    </nav>
 
-   <div style="width: 100%; height: 100%;">
-    <img src="IMAGE/Black and Brown Modern Coffee Presentation.gif" alt="" style= "width: 100%; height: 100%;">
+   <div style="box-shadow: 2px 2px 2px 2px #3E2723;" >
+    <video src="IMAGE/BG2.mp4" muted autoplay alt="" style="width: 100%; height: 450px; display: block; object-fit: cover; ">
    </div>
 
-   <div class="cards">
+   <div class="cards" id="cards">
     <div class="card">
       <div class="cardIMG">
         <img src="IMAGE/Cappuccino(1).jpg" alt="">
@@ -70,19 +73,15 @@
     <div class="result" id="result">
       <div class="result-text">
         <div class="result-card">
-          <p style="font-weight: bold">Daily Summary<br /></p>
-          <p>
-            Tambahkan minum terlebih dahulu! 
-          </p>
         </div>
       </div>
 
-      <div>
+      <!-- <div>
         <img
           src="IMAGE/fotokopi_Nero_AI_Image_Upscaler_Photo_Face.png"
           alt=""
         />
-      </div>
+      </div> -->
     </div>
 
     <footer>
@@ -93,9 +92,15 @@
     <!-- JavaScript -->
     <script src="kalkulator.js"></script>
     <script>
+     
+     function scrollToMinuman() {
+      document.getElementById("cards").scrollIntoView({behavior: "smooth"});
+     }
       function scrollToForm() {
       document.getElementById("result").scrollIntoView({behavior: "smooth"});
     }
+
+
     </script>
   </body>
 </html>
