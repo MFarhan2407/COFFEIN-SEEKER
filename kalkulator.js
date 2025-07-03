@@ -67,7 +67,7 @@ function tampilkanDaftarMinuman() {
         <p>${caffeine} mg</p>
       </div>
       <div class="button-container">
-        <button class="card-button" onclick="summary('${name}', ${caffeine})">Tambah</button>
+        <button class="card-button" onclick="summary('${name}', ${caffeine}), scrollToForm()">Tambah</button>
       </div>
     </div>
   `;
@@ -86,7 +86,7 @@ function summary(name, caffeine) {
   const summaryText = document.getElementsByClassName("result-card")[0];
 
   innerSummary += `
-  <p style="font-weight: bold">Summary</p>
+  <p style="font-weight: bold; font-size: large">Daily Summary</p>
   <p>Riwayat minuman: </p>
   <ul id="list-riwayat" style="color: #3e2723"></ul>
   <p>Total konsumsi kafein = ${totalCaffeine} mg</p>
@@ -105,7 +105,7 @@ function summary(name, caffeine) {
 
   if (totalCaffeine > 400) {
     summaryText.innerHTML += `
-    <p>Anda telah mengonsumsi kafein harian melebihi batas aman. Jika mengalami gejala seperti jantung berdebar atau sulit tidur, segera periksakan diri.</p>
+    <p style="align-item: center">Anda telah mengonsumsi kafein harian melebihi batas aman. Jika mengalami gejala seperti jantung berdebar atau sulit tidur, segera periksakan diri.</p>
     `;
   } else if (totalCaffeine >= 300) {
     summaryText.innerHTML += `
