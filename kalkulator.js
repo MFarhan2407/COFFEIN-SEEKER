@@ -215,23 +215,10 @@ function deleteItem(name, caffeine) {
       }
     }
   }
-  console.log(daftarRiwayatMinuman);
+  // console.log(daftarRiwayatMinuman);
   renderSummary();
 }
 
-function tampilkanDetail(minuman) {
-  const detail = document.getElementById("detail-section");
-  detail.style.display = "block";
-
-  detail.innerHTML = `
-    
-  `;
-
-  aktifkanCounter(detail, minuman);
-  aktifkanPilihanEksklusif(detail, ".size-btn", "selected");
-  aktifkanPilihanEksklusif(detail, ".temp-btn", "selected");
-  aktifkanJenisKopiListener(detail, minuman);
-}
 
 function aktifkanCounter(container, minuman) {
   const plusBtn = container.querySelector(".plus-btn");
