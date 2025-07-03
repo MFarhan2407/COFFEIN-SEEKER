@@ -22,32 +22,42 @@ const daftarMinuman = [
   {
     name: "Espresso Single Shot",
     img: "IMAGE/espresso-shot.jpg",
+    caffeine: 75,
+  },
+  {
+    name: "French Press",
+    img: "IMAGE/frenchpress2.jpg",
+    caffeine: 118.5,
+  },
+  {
+    name: "Cold Brew",
+    img: "IMAGE/coldbrew.jpg",
+    caffeine: 205,
+  },
+  {
+    name: "Instant Coffee",
+    img: "IMAGE/instantcoffee.jpg",
+    caffeine: 100,
+  },
+  {
+    name: "Pour Over",
+    img: "IMAGE/pourovercoffee2.jpg",
+    caffeine: 125,
+  },
+  {
+    name: "Espresso Based-Drink",
+    img: "IMAGE/baseddrink.jpg",
+    caffeine: 150,
+  },
+  {
+    name: "Regular Coffe",
+    img: "IMAGE/regularcoffe2.jpg",
     caffeine: 112,
   },
   {
-    name: "Espresso Based Drink",
-    img: "IMAGE/Cappuccino(1).jpg",
-    caffeine: 112,
-  },
-  {
-    name: "Espresso Based Drink",
-    img: "IMAGE/Cappuccino(1).jpg",
-    caffeine: 112,
-  },
-  {
-    name: "Espresso Based Drink",
-    img: "IMAGE/Cappuccino(1).jpg",
-    caffeine: 112,
-  },
-  {
-    name: "Espresso Based Drink",
-    img: "IMAGE/Cappuccino(1).jpg",
-    caffeine: 112,
-  },
-  {
-    name: "Espresso Based Drink",
-    img: "IMAGE/Cappuccino(1).jpg",
-    caffeine: 112,
+    name: "Decaffeinated Coffee",
+    img: "IMAGE/decaf.jpg",
+    caffeine: 3.5,
   },
 ];
 
