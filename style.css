@@ -271,7 +271,7 @@ input {
 
 .awal-text button:hover {
   background-color: #8d6e63;
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
 
 .form-section {
