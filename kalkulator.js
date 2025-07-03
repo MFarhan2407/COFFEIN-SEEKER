@@ -10,7 +10,7 @@ function ambilNamaDariURL() {
   const nama = params.get("nama");
   if (nama) {
     document.getElementById("halo-user").textContent =
-      "HALO " + nama.toUpperCase() + "!";
+      "Halo " + nama + "!";
   }
 }
 
@@ -85,13 +85,18 @@ function summary(name, caffeine) {
   let innerSummary = ``;
   const summaryText = document.getElementsByClassName("result-card")[0];
 
+  // innerSummary += `
+  // <p style="font-weight: bold; font-size: large; ">Daily Summary</p>
+  // <p>Riwayat minuman: </p>
+  // <ul id="list-riwayat" style="color: white"></ul>
+  // <p>Total konsumsi kafein = ${totalCaffeine} mg</p>
+  // `;
   innerSummary += `
-  <p style="font-weight: bold; font-size: large">Daily Summary</p>
-  <p>Riwayat minuman: </p>
-  <ul id="list-riwayat" style="color: #3e2723"></ul>
-  <p>Total konsumsi kafein = ${totalCaffeine} mg</p>
-  `;
-
+  <p id="farhan" >Daily Summary</p>
+  <p id="text-kiri">Riwayat minuman: </p>
+  <ul id="list-riwayat"></ul>
+  <p id = "Total-konsumsi">Total konsumsi kafein = ${totalCaffeine} mg</p>
+`;
   summaryText.innerHTML = innerSummary;
 
   const listRiwayat = document.getElementById("list-riwayat");
@@ -105,19 +110,19 @@ function summary(name, caffeine) {
 
   if (totalCaffeine > 400) {
     summaryText.innerHTML += `
-    <p style="align-item: center">Anda telah mengonsumsi kafein harian melebihi batas aman. Jika mengalami gejala seperti jantung berdebar atau sulit tidur, segera periksakan diri.</p>
+    <p id="saran">Anda telah mengonsumsi kafein harian melebihi batas aman. Jika mengalami gejala seperti jantung berdebar atau sulit tidur, segera periksakan diri.</p>
     `;
   } else if (totalCaffeine >= 300) {
     summaryText.innerHTML += `
-    <p>Konsumsi kafein Anda mendekati batas aman harian. Sebaiknya hindari menambah asupan, terutama jika mendekati malam, agar tidak mengganggu tidur dan ritme biologis.</p>
+    <p id="saran">Konsumsi kafein Anda mendekati batas aman harian. Sebaiknya hindari menambah asupan, terutama jika mendekati malam, agar tidak mengganggu tidur dan ritme biologis.</p>
     `;
   } else if (totalCaffeine > 200) {
     summaryText.innerHTML += `
-    <p>Konsumsi kafein Anda masih dalam batas sehat. Jaga jeda antara minuman dan pastikan tidak bergantung secara berlebihan.</p>
+    <p id="saran">Konsumsi kafein Anda masih dalam batas sehat. Jaga jeda antara minuman dan pastikan tidak bergantung secara berlebihan.</p>
     `;
   } else {
     summaryText.innerHTML += `
-    <p>Anda hanya mengonsumsi sedikit kafein hari ini. Jika butuh tambahan energi, boleh pertimbangkan 1 porsi lagi, tetapi tetap perhatikan waktu agar tidak mengganggu tidur.</p>
+    <p id="saran">Anda hanya mengonsumsi sedikit kafein hari ini. Jika butuh tambahan energi, boleh pertimbangkan 1 porsi lagi, tetapi tetap perhatikan waktu agar tidak mengganggu tidur.</p>
     `;
   }
 }
