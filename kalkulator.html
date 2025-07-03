@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   
 </head>
-<body class="page-mode">
+<body class="page-mode" id="beranda">
 
   <div>
    <nav>
@@ -17,7 +17,9 @@
     <div id="nav">
       <div id="halo-user">HALO!</div>
       <a href="index.html">Kembali</a>
-      <a href="#">Beranda</a>
+      <button onclick="scrollToBeranda()" style="border: none; background: none; font-weight: bold; font-size: medium;">
+        Beranda
+      </button>
       <button onclick="scrollToMinuman()" style="border: none; background: none; font-weight: bold; font-size: medium;">
         Cek Kafein
       </button>
@@ -49,6 +51,9 @@
      
      function scrollToMinuman() {
       document.getElementById("cards").scrollIntoView({behavior: "smooth"});
+     }
+     function scrollToBeranda() {
+      document.getElementById("beranda").scrollIntoView({behavior: "smooth"});
      }
     </script>
   </body>
