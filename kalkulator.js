@@ -91,7 +91,7 @@ function tampilkanDaftarMinuman() {
       <input type="number" id="custom-kafein" placeholder="mg Kafein" style="width: 100%; margin-bottom: 3px; padding: 4px; color: white; background-color: rgba(0, 0, 0, 0.5);" />
       <input type="text" id="custom-foto" placeholder="URL foto" style="width: 100%; padding: 4px;color: white; background-color: rgba(0, 0, 0, 0.5);" />
     </div>
-    <div class="button-container">
+    <div class="button-container\">
       <button class="card-button" onclick="tambahCardCustom()">Tambah Minuman</button>
     </div>
   </div>
